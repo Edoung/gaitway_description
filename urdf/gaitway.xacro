@@ -214,6 +214,20 @@
   </collision>
 </link>
 
+<link name="imu_link">
+  <visual>
+    <geometry>
+      <box size="0.01 0.01 0.01"/>
+    </geometry>
+  </visual>
+</link>
+
+<joint name="imu_joint" type="fixed">
+  <parent link="base_link"/>
+  <child link="imu_link"/>
+  <origin xyz="0 0 0.1" rpy="0 0 0"/>
+</joint>
+
 <joint name="rig1" type="fixed">
   <origin xyz="-0.082 -0.009 0.2425" rpy="0 0 0"/>
   <parent link="base_link"/>

@@ -1,0 +1,16 @@
+<launch>
+
+	<node name="move_base" pkg="move_base" type="move_base" respawn="false" output="screen">
+		<rosparam file="$(find gaitway_description)/config/costmap_common_params.yaml" command="load" ns="global_costmap"/>
+		<rosparam file="$(find gaitway_description)/config/costmap_common_params.yaml" command="load" ns="local_costmap"/>
+		<rosparam file="$(find gaitway_description)/config/local_costmap_params.yaml" command="load"/>
+		<rosparam file="$(find gaitway_description)/config/global_costmap_params.yaml" command="load"/>
+		
+		<param name="base_global_planer" value="global_planner/GlobalPlanner"/>
+		<rosparam file="$(find gaitway_description)/config/global_planner_params.yaml" command="load"/>
+		
+		<rosparam file="$(find gaitway_description)/config/base_local_planner_params.yaml" command="load"/>
+		<param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS"/>
+	</node>
+
+</launch>

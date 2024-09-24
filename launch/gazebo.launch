@@ -1,7 +1,19 @@
 <launch>
+  <arg name="rvizconfig" default="$(find gaitway_description)/config/navigation_config.rviz"/>
+  <arg name="world_map" default="$(find gaitway_description)/worlds/gaitway_map.yaml"/>
+
   <param name="robot_description" command="$(find xacro)/xacro $(find gaitway_description)/urdf/gaitway.xacro"/>
+  
   <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model gaitway"/>
+  <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui"/>
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+  <node name="rviz" type="rviz" pkg="rviz" args=" -d $(arg rvizconfig)" required="true"/>
+  <node name="map_server" type="map_server" pkg="map_server" args="$(arg world_map)"/> 
+  
+  <include file="$(find gaitway_description)/launch/localization.launch"/>
+  
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
+  <arg name="world_name" value="$(find gaitway_description)/worlds/gaitway_world.world"/>
     <arg name="paused" value="true"/>
     <arg name="use_sim_time" value="true"/>
     <arg name="gui" value="true"/>

@@ -1,0 +1,10 @@
+GlobalPlanner:
+ type: "navfn/NavfnROS"
+ 
+ # Basic Config
+ allow_unknown: true
+ default_tolerance: 0.5
+ use_dijkstra: false
+ use_astar: false
+ 
+ 
