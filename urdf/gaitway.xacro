@@ -1,0 +1,277 @@
+<?xml version="1.0" ?>
+<robot name="gaitway" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find gaitway_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find gaitway_description)/urdf/gaitway.trans" />
+<xacro:include filename="$(find gaitway_description)/urdf/gaitway.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="-0.009947707420097355 -0.008866599387150821 0.2729505766530512" rpy="0 0 0"/>
+    <mass value="7.958411472154008"/>
+    <inertia ixx="0.478326" iyy="0.431105" izz="0.176408" ixy="-0.00031" iyz="0.000136" ixz="0.016093"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gaitway_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gaitway_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="base_laser_1">
+  <inertial>
+    <origin xyz="0.02629998058673555 -2.865744605159981e-09 0.011509974478761065" rpy="0 0 0"/>
+    <mass value="0.08426587003494036"/>
+    <inertia ixx="3e-05" iyy="3e-05" izz="5.2e-05" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.082 0.009 -0.2425" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gaitway_description/meshes/base_laser_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.082 0.009 -0.2425" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gaitway_description/meshes/base_laser_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_wheel_1">
+  <inertial>
+    <origin xyz="8.627076207579076e-08 0.016500452614946398 1.3877787807814457e-17" rpy="0 0 0"/>
+    <mass value="0.042330100058116465"/>
+    <inertia ixx="4.2e-05" iyy="7.7e-05" izz="4.2e-05" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.08496 -0.185766 -0.061033" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gaitway_description/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.08496 -0.185766 -0.061033" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gaitway_description/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_wheel_1">
+  <inertial>
+    <origin xyz="2.2330004806336845e-07 -0.016499955145053563 2.075746751289964e-07" rpy="0 0 0"/>
+    <mass value="0.3280582754504032"/>
+    <inertia ixx="0.000325" iyy="0.000595" izz="0.000325" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.08496 0.204117 -0.061033" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gaitway_description/meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.08496 0.204117 -0.061033" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gaitway_description/meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="mount1_1">
+  <inertial>
+    <origin xyz="0.0019999855840152347 -0.0020002724462876292 -0.0011499999999999982" rpy="0 0 0"/>
+    <mass value="0.07023170190652235"/>
+    <inertia ixx="1.9e-05" iyy="2.7e-05" izz="4.6e-05" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.124019 -0.100445 -0.08599" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gaitway_description/meshes/mount1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.124019 -0.100445 -0.08599" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gaitway_description/meshes/mount1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_arm_1">
+  <inertial>
+    <origin xyz="-0.008538101180084093 0.0010392762286639268 -0.016805409202448912" rpy="0 0 0"/>
+    <mass value="0.18456574532837225"/>
+    <inertia ixx="0.000102" iyy="0.000107" izz="9.9e-05" ixy="4e-06" iyz="6e-06" ixz="-3.5e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.122019 -0.098445 -0.08369" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gaitway_description/meshes/left_arm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.122019 -0.098445 -0.08369" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gaitway_description/meshes/left_arm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_caster_1">
+  <inertial>
+    <origin xyz="-7.406673280252463e-08 -2.724463108866315e-07 -6.25848733948331e-10" rpy="0 0 0"/>
+    <mass value="0.12145663039519977"/>
+    <inertia ixx="5.1e-05" iyy="8.3e-05" izz="5.1e-05" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.151362 -0.098445 -0.03769" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gaitway_description/meshes/left_caster_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.151362 -0.098445 -0.03769" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gaitway_description/meshes/left_caster_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="mount2_1">
+  <inertial>
+    <origin xyz="0.0019999855840152347 0.00150042467371235 -0.0011499999999999982" rpy="0 0 0"/>
+    <mass value="0.07023170190652234"/>
+    <inertia ixx="1.9e-05" iyy="2.7e-05" izz="4.6e-05" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.124019 0.118505 -0.08599" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gaitway_description/meshes/mount2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.124019 0.118505 -0.08599" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gaitway_description/meshes/mount2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_arm_1">
+  <inertial>
+    <origin xyz="-0.008538101180081456 0.0010399704130064635 -0.016805409202450425" rpy="0 0 0"/>
+    <mass value="0.1845657453283077"/>
+    <inertia ixx="0.000102" iyy="0.000107" izz="9.9e-05" ixy="4e-06" iyz="6e-06" ixz="-3.5e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.122019 0.117005 -0.08369" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gaitway_description/meshes/right_arm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.122019 0.117005 -0.08369" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gaitway_description/meshes/right_arm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_caster_1">
+  <inertial>
+    <origin xyz="-7.406673280252463e-08 4.246736891172498e-07 -6.258487270094371e-10" rpy="0 0 0"/>
+    <mass value="0.1214566303951998"/>
+    <inertia ixx="5.1e-05" iyy="8.3e-05" izz="5.1e-05" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.151362 0.117005 -0.03769" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gaitway_description/meshes/right_caster_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.151362 0.117005 -0.03769" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gaitway_description/meshes/right_caster_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="rig1" type="fixed">
+  <origin xyz="-0.082 -0.009 0.2425" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="base_laser_1"/>
+</joint>
+
+<joint name="rev1" type="continuous">
+  <origin xyz="0.08496 0.185766 0.061033" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="left_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="rev2" type="continuous">
+  <origin xyz="0.08496 -0.204117 0.061033" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="right_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="rig2" type="fixed">
+  <origin xyz="-0.124019 0.100445 0.08599" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="mount1_1"/>
+</joint>
+
+<joint name="rev3" type="continuous">
+  <origin xyz="0.002 -0.002 -0.0023" rpy="0 0 0"/>
+  <parent link="mount1_1"/>
+  <child link="left_arm_1"/>
+  <axis xyz="0.0 0.0 -1.0"/>
+</joint>
+
+<joint name="rev4" type="continuous">
+  <origin xyz="-0.029343 0.0 -0.046" rpy="0 0 0"/>
+  <parent link="left_arm_1"/>
+  <child link="left_caster_1"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="rig3" type="fixed">
+  <origin xyz="-0.124019 -0.118505 0.08599" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="mount2_1"/>
+</joint>
+
+<joint name="rev5" type="continuous">
+  <origin xyz="0.002 0.0015 -0.0023" rpy="0 0 0"/>
+  <parent link="mount2_1"/>
+  <child link="right_arm_1"/>
+  <axis xyz="0.0 0.0 -1.0"/>
+</joint>
+
+<joint name="rev6" type="continuous">
+  <origin xyz="-0.029343 0.0 -0.046" rpy="0 0 0"/>
+  <parent link="right_arm_1"/>
+  <child link="right_caster_1"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+</joint>
+
+</robot>
